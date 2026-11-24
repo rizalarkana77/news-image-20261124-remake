@@ -19,7 +19,9 @@ cutoff. This is a NEW entry: a different hero, a different palette, a
 different layout feel, and a different selection of the day's stories. The
 original covered NATO/AWACS, COP31, the warship off Libya, the Java factory
 fire and the Iran blockade; this one covers five other stories from the same
-day.
+day. The remake was then fixed in place: `main.ts` was rewritten from
+scratch (same validation, same byte-for-byte copy) and this README revised,
+so the entry image itself never changed — only the code that delivers it.
 
 ## The image
 
@@ -68,7 +70,11 @@ Nothing invented, nothing hyped: every line is what was reported that day.
 - `main.ts` (Node 22, standard library only) validates `entry.png` — PNG
   signature, IHDR size, colour type, IEND, at most 1024×1024 and 1 MiB —
   then copies it byte for byte to `$MAKEFUN_OUTPUT_DIR/entry.png` and
-  verifies the copy by sha256. It runs twice and writes identical bytes.
+  verifies the copy by sha256. It runs twice and writes identical bytes:
+  both runs produce sha256
+  `bf38e5659783808ab2b841c2956812892bd179b143302b85a78ea0eca9eb86de`,
+  the same hash as `entry.png` itself, so the delivered image is exactly
+  the image shown above.
 
 ## Run it
 
